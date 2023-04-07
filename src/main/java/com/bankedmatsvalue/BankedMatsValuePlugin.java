@@ -11,6 +11,7 @@ import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
+import net.runelite.client.ui.overlay.OverlayManager;
 
 @Slf4j
 @PluginDescriptor(
@@ -22,7 +23,15 @@ public class BankedMatsValuePlugin extends Plugin
 	private Client client;
 
 	@Inject
+	private BankedMatsValueOverlay overlay;
+
+	@Inject
 	private BankedMatsValueConfig config;
+
+	@Inject
+	private OverlayManager overlayManager;
+
+	private Boolean pluginToggled = false;
 
 	@Override
 	protected void startUp() throws Exception
@@ -49,5 +58,10 @@ public class BankedMatsValuePlugin extends Plugin
 	BankedMatsValueConfig provideConfig(ConfigManager configManager)
 	{
 		return configManager.getConfig(BankedMatsValueConfig.class);
+	}
+
+	public void hideOverlay() {
+		pluginToggled = false;
+		overlayManager.remove(overlay);
 	}
 }
