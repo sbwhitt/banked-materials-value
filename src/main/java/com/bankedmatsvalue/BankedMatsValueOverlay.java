@@ -26,6 +26,7 @@ public class BankedMatsValueOverlay extends OverlayPanel{
     private final BankedMatsValueConfig config;
     private final TooltipManager tooltipManager;
     private final OverlayManager overlayManager;
+    private final PanelComponent mainPanel;
     private Widget bank;
 
     private BankedMatsValueOverlay(Client client, TooltipManager tooltipManager, BankedMatsValueConfig config,
@@ -43,13 +44,24 @@ public class BankedMatsValueOverlay extends OverlayPanel{
         setResettable(false);
 
         panelComponent.setBackgroundColor(new Color(51, 51, 51, 245));
+        mainPanel = new PanelComponent();
     }
 
     @Override
     public Dimension render(Graphics2D graphics) {
+        bank = client.getWidget(WidgetInfo.BANK_CONTAINER);
+
+        panelComponent.getChildren().clear();
+
         if (bank == null || bank.isHidden()) {
             plugin.hideOverlay();
         }
+
+        panelComponent.getChildren().add(TitleComponent.builder()
+                .text("Banked Mats Value")
+                .build());
+        panelComponent.setPreferredSize(new Dimension(mainPanel.getBounds().width + 6, 0));
+
         return super.render(graphics);
     }
 }
