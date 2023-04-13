@@ -3,13 +3,11 @@ package com.bankedmatsvalue;
 import com.google.inject.Provides;
 import javax.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
-import net.runelite.api.ChatMessageType;
-import net.runelite.api.Client;
-import net.runelite.api.GameState;
-import net.runelite.api.MenuEntry;
+import net.runelite.api.*;
 import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.MenuEntryAdded;
 import net.runelite.api.widgets.Widget;
+import net.runelite.api.widgets.WidgetID;
 import net.runelite.api.widgets.WidgetInfo;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
@@ -19,7 +17,7 @@ import net.runelite.client.ui.overlay.OverlayManager;
 
 @Slf4j
 @PluginDescriptor(
-	name = "Example"
+		name = "Banked Materials Value"
 )
 public class BankedMatsValuePlugin extends Plugin
 {
@@ -44,12 +42,24 @@ public class BankedMatsValuePlugin extends Plugin
 	@Override
 	protected void shutDown() throws Exception
 	{
-		overlayManager.remove(overlay);
 		log.info("Banked Materials Value stopped!");
+		overlayManager.remove(overlay);
 	}
 
 	@Subscribe
-	public void onMenuEntryAdded(MenuEntryAdded entry) {}
+	public void onMenuEntryAdded(MenuEntryAdded event) {
+		if (event.getType() != MenuAction.CC_OP.getId() || !event.getOption().equals("Show menu")
+				|| (event.getActionParam1() >> 16) != WidgetID.BANK_GROUP_ID){
+			return;
+		}
+
+		client.createMenuEntry(-1)
+				.setOption("Toggle Banked Mats Value")
+				.setTarget("")
+				.setType(MenuAction.RUNELITE)
+				.onClick(this::onClick)
+				.setDeprioritized(true);
+	}
 
 	public void onClick(MenuEntry entry) {
 		bank = client.getWidget(WidgetInfo.BANK_CONTAINER);
