@@ -17,7 +17,7 @@ public class RawMatsCache {
     class RawMatData {
         public int id;
         public String name;
-        public List<String> skills;
+        public int amount;
     }
 
     @AllArgsConstructor
@@ -25,7 +25,7 @@ public class RawMatsCache {
         List<RawMatData> mats;
     }
 
-    private static HashMap< Integer, RawMatData> cache;
+    private static HashMap<Integer, RawMatData> cache = new HashMap<>();
 
     @Inject
     public RawMatsCache() {

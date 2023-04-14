@@ -23,25 +23,26 @@ public class BankedMatsValuePlugin extends Plugin
 {
 	@Inject
 	private Client client;
-	private Widget bank;
+	@Inject
+	private RawMatsCache matsCache;
 	@Inject
 	private BankedMatsValueOverlay overlay;
 	@Inject
 	private BankedMatsValueConfig config;
 	@Inject
 	private OverlayManager overlayManager;
+
+	private Widget bank;
 	private Boolean pluginToggled = false;
 
 	@Override
-	protected void startUp() throws Exception
-	{
+	protected void startUp() throws Exception {
 		log.info("Banked Materials Value started!");
 		overlayManager.add(overlay);
 	}
 
 	@Override
-	protected void shutDown() throws Exception
-	{
+	protected void shutDown() throws Exception {
 		log.info("Banked Materials Value stopped!");
 		overlayManager.remove(overlay);
 	}
@@ -72,30 +73,41 @@ public class BankedMatsValuePlugin extends Plugin
 
 		pluginToggled = !pluginToggled;
 		if (pluginToggled) {
+			findRawMats();
 			overlayManager.add(overlay);
-		}
-		else {
+		} else {
 			overlayManager.remove(overlay);
 		}
 	}
 
 	@Subscribe
-	public void onGameStateChanged(GameStateChanged gameStateChanged)
-	{
-		if (gameStateChanged.getGameState() == GameState.LOGGED_IN)
-		{
+	public void onGameStateChanged(GameStateChanged gameStateChanged) {
+		if (gameStateChanged.getGameState() == GameState.LOGGED_IN) {
 			client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", "Example says " + config.greeting(), null);
 		}
 	}
 
 	@Provides
-	BankedMatsValueConfig provideConfig(ConfigManager configManager)
-	{
+	BankedMatsValueConfig provideConfig(ConfigManager configManager) {
 		return configManager.getConfig(BankedMatsValueConfig.class);
 	}
 
 	public void hideOverlay() {
 		pluginToggled = false;
 		overlayManager.remove(overlay);
+	}
+
+	private void findRawMats() {
+		ItemContainer bankContainer = client.getItemContainer(InventoryID.BANK);
+		if (bankContainer != null) {
+			Item[] items = bankContainer.getItems();
+			for (int i = 0; i < items.length; i++) {
+				RawMatsCache.RawMatData rawMat = matsCache.getRawMat(items[i].getId());
+				if (rawMat != null) {
+					rawMat.amount = items[i].getQuantity();
+					overlay.bankedMats.put(items[i].getId(), rawMat);
+				}
+			}
+		}
 	}
 }

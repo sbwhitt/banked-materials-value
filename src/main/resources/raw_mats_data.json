@@ -1,9 +1,9 @@
 {
-  "items": [
+  "mats": [
     {
       "id": 1511,
       "name": "Logs",
-      "skills": ["fletching"]
+      "amount": 0
     }
   ]
 }

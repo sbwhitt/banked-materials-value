@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.awt.geom.Rectangle2D;
+import java.util.Map;
+
 import net.runelite.api.widgets.Widget;
 import net.runelite.client.ui.overlay.*;
 import net.runelite.client.ui.SkillColor;
@@ -28,6 +30,7 @@ public class BankedMatsValueOverlay extends OverlayPanel{
     private final OverlayManager overlayManager;
     private final PanelComponent mainPanel;
     private Widget bank;
+    public HashMap<Integer, RawMatsCache.RawMatData> bankedMats = new HashMap<>();
 
     @Inject
     private BankedMatsValueOverlay(Client client, TooltipManager tooltipManager, BankedMatsValueConfig config,
@@ -63,6 +66,14 @@ public class BankedMatsValueOverlay extends OverlayPanel{
                 .text("Banked Mats Value")
                 .build());
         //panelComponent.setPreferredSize(new Dimension(mainPanel.getBounds().width + 6, 0));
+
+        for (Map.Entry<Integer, RawMatsCache.RawMatData> entry : bankedMats.entrySet()) {
+            String itemName = entry.getValue().name;
+            panelComponent.getChildren().add(LineComponent.builder()
+                    .left(itemName + ":")
+                    .right("" + entry.getValue().amount)
+                    .build());
+        }
 
         return super.render(graphics);
     }
