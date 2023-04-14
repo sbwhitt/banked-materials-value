@@ -1,9 +1,10 @@
 {
-  "items": [
+  "products": [
     {
       "id": 50,
       "name": "Shortbow (u)",
-      "skill": "fletching"
+      "skill": "fletching",
+      "ingredients": [1511]
     }
   ]
 }

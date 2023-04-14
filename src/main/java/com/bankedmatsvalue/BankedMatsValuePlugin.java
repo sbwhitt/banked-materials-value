@@ -15,6 +15,8 @@ import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
 
+import java.util.Map;
+
 @Slf4j
 @PluginDescriptor(
 		name = "Banked Materials Value"
@@ -103,4 +105,14 @@ public class BankedMatsValuePlugin extends Plugin
 			}
 		}
 	}
+
+//	private void findPotentialProducts() {
+//		ItemContainer bankContainer = client.getItemContainer(InventoryID.BANK);
+//		if (bankContainer != null) {
+//			for (Map.Entry<Integer, RawMatsCache.RawMatData> entry : overlay.bankedMats.entrySet()) {
+//				RawMatsCache.RawMatData raw = entry.getValue();
+//
+//			}
+//		}
+//	}
 }
