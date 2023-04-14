@@ -80,13 +80,6 @@ public class BankedMatsValuePlugin extends Plugin
 		}
 	}
 
-	@Subscribe
-	public void onGameStateChanged(GameStateChanged gameStateChanged) {
-		if (gameStateChanged.getGameState() == GameState.LOGGED_IN) {
-			client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", "Example says " + config.greeting(), null);
-		}
-	}
-
 	@Provides
 	BankedMatsValueConfig provideConfig(ConfigManager configManager) {
 		return configManager.getConfig(BankedMatsValueConfig.class);

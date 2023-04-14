@@ -3,7 +3,7 @@
     {
       "id": 50,
       "name": "Shortbow (u)",
-      "skills": ["fletching"]
+      "skill": "fletching"
     }
   ]
 }
