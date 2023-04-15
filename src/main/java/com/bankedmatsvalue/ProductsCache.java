@@ -2,6 +2,7 @@ package com.bankedmatsvalue;
 
 import com.google.gson.Gson;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import net.runelite.client.game.ItemManager;
 
 import javax.inject.Inject;
@@ -17,7 +18,8 @@ public class ProductsCache {
     class ProductData {
         public int id;
         public String name;
-        public int amount;
+        public String skill;
+        public int[] ingredients;
     }
 
     @AllArgsConstructor
@@ -25,7 +27,7 @@ public class ProductsCache {
         List<ProductData> products;
     }
 
-    private static HashMap<Integer, ProductData> cache = new HashMap<>();
+    public static HashMap<Integer, ProductData> cache = new HashMap<>();
 
     @Inject
     public ProductsCache() {
@@ -34,7 +36,7 @@ public class ProductsCache {
 
     public void populateCache() {
         final Gson gson = new Gson();
-        final InputStream data = RawMatsCache.class.getResourceAsStream("/raw_mats_data.json");
+        final InputStream data = ProductsCache.class.getResourceAsStream("/products_data.json");
 
         ProductsContainer productContainer = gson.fromJson(new InputStreamReader(data, StandardCharsets.UTF_8), ProductsContainer.class);
         for (int i = 0; i < productContainer.products.size(); i++) {
@@ -42,7 +44,7 @@ public class ProductsCache {
         }
     }
 
-    public ProductData getRawMat(int id) {
+    public ProductData getProduct(int id) {
         if (cache.containsKey(id)) {
             return cache.get(id);
         }

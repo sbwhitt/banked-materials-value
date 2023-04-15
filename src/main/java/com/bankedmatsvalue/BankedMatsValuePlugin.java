@@ -2,6 +2,8 @@ package com.bankedmatsvalue;
 
 import com.google.inject.Provides;
 import javax.inject.Inject;
+
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.*;
 import net.runelite.api.events.GameStateChanged;
@@ -27,6 +29,8 @@ public class BankedMatsValuePlugin extends Plugin
 	private Client client;
 	@Inject
 	private RawMatsCache matsCache;
+	@Inject
+	private ProductsCache productCache;
 	@Inject
 	private BankedMatsValueOverlay overlay;
 	@Inject
@@ -76,6 +80,7 @@ public class BankedMatsValuePlugin extends Plugin
 		pluginToggled = !pluginToggled;
 		if (pluginToggled) {
 			findRawMats();
+			findPotentialProducts();
 			overlayManager.add(overlay);
 		} else {
 			overlayManager.remove(overlay);
@@ -106,13 +111,26 @@ public class BankedMatsValuePlugin extends Plugin
 		}
 	}
 
-//	private void findPotentialProducts() {
-//		ItemContainer bankContainer = client.getItemContainer(InventoryID.BANK);
-//		if (bankContainer != null) {
-//			for (Map.Entry<Integer, RawMatsCache.RawMatData> entry : overlay.bankedMats.entrySet()) {
-//				RawMatsCache.RawMatData raw = entry.getValue();
-//
-//			}
-//		}
-//	}
+	private void findPotentialProducts() {
+		ItemContainer bankContainer = client.getItemContainer(InventoryID.BANK);
+		if (bankContainer != null) {
+			for (Map.Entry<Integer, ProductsCache.ProductData> entry : ProductsCache.cache.entrySet()) {
+				ProductsCache.ProductData product = entry.getValue();
+				log.info("product loop");
+				Boolean creatable = false;
+				for (int i = 0; i < product.ingredients.length; i++) {
+					if (overlay.bankedMats.containsKey(product.ingredients[i])) creatable = true;
+					else {
+						creatable = false;
+						break;
+					}
+				}
+				if (creatable) overlay.potentialProducts.put(product.id, product);
+			}
+		}
+	}
+
+	public static void logIt(String in) {
+		log.info(in);
+	}
 }

@@ -31,7 +31,7 @@ public class BankedMatsValueOverlay extends OverlayPanel{
     private final PanelComponent mainPanel;
     private Widget bank;
     public HashMap<Integer, RawMatsCache.RawMatData> bankedMats = new HashMap<>();
-    public HashMap<Integer, ProductsCache.ProductData> products = new HashMap<>();
+    public HashMap<Integer, ProductsCache.ProductData> potentialProducts = new HashMap<>();
 
     @Inject
     private BankedMatsValueOverlay(Client client, TooltipManager tooltipManager, BankedMatsValueConfig config,
@@ -68,10 +68,16 @@ public class BankedMatsValueOverlay extends OverlayPanel{
                 .build());
 
         for (Map.Entry<Integer, RawMatsCache.RawMatData> entry : bankedMats.entrySet()) {
-            String itemName = entry.getValue().name;
             panelComponent.getChildren().add(LineComponent.builder()
-                    .left(itemName + ":")
+                    .left(entry.getValue().name + ":")
                     .right("" + entry.getValue().amount)
+                    .build());
+        }
+
+        for (Map.Entry<Integer, ProductsCache.ProductData> entry : potentialProducts.entrySet()) {
+            panelComponent.getChildren().add(LineComponent.builder()
+                    .left(entry.getValue().name + ":")
+                    .right("" + entry.getValue().skill)
                     .build());
         }
 
