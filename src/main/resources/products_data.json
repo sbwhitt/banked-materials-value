@@ -3,14 +3,68 @@
     {
       "id": 50,
       "name": "Shortbow (u)",
-      "skill": "fletching",
+      "skill": "Fletching",
       "ingredients": [1511]
     },
     {
       "id": 48,
       "name": "Longbow (u)",
-      "skill": "fletching",
+      "skill": "Fletching",
       "ingredients": [1511]
+    },
+    {
+      "id": 11068,
+      "name": "Gold bracelet",
+      "skill": "Crafting",
+      "ingredients": [2357]
+    },
+    {
+      "id": 11071,
+      "name": "Sapphire bracelet",
+      "skill": "Crafting",
+      "ingredients": [2357, 1607]
+    },
+    {
+      "id": 11076,
+      "name": "Emerald bracelet",
+      "skill": "Crafting",
+      "ingredients": [2357, 1605]
+    },
+    {
+      "id": 11085,
+      "name": "Ruby bracelet",
+      "skill": "Crafting",
+      "ingredients": [2357, 1603]
+    },
+    {
+      "id": 11085,
+      "name": "Diamond bracelet",
+      "skill": "Crafting",
+      "ingredients": [2357, 1601]
+    },
+    {
+      "id": 1607,
+      "name": "Sapphire",
+      "skill": "Crafting",
+      "ingredients": [1623]
+    },
+    {
+      "id": 1605,
+      "name": "Emerald",
+      "skill": "Crafting",
+      "ingredients": [1621]
+    },
+    {
+      "id": 1603,
+      "name": "Ruby",
+      "skill": "Crafting",
+      "ingredients": [1619]
+    },
+    {
+      "id": 1601,
+      "name": "Diamond",
+      "skill": "Crafting",
+      "ingredients": [1617]
     }
   ]
 }

@@ -63,9 +63,20 @@ public class BankedMatsValueOverlay extends OverlayPanel{
         else {
             ArrayList<Integer> products = potentialProducts.get(itemId);
             for (int i = 0; i < products.size(); i++) {
-                tooltipManager.add(new Tooltip(ProductsCache.cache.get(products.get(i)).name));
+                String colorStr = colorSkillString(ProductsCache.cache.get(products.get(i)).name, ProductsCache.cache.get(products.get(i)).skill);
+                tooltipManager.add(new Tooltip(colorStr));
             }
         }
         return null;
+    }
+
+    private String colorSkillString(String str, String skillColor) {
+        switch(skillColor) {
+            case "Crafting":
+                return ColorUtil.wrapWithColorTag(str, SkillColor.CRAFTING.getColor().brighter().brighter());
+            case "Fletching":
+                return ColorUtil.wrapWithColorTag(str, SkillColor.FLETCHING.getColor().brighter().brighter());
+        }
+        return "";
     }
 }
