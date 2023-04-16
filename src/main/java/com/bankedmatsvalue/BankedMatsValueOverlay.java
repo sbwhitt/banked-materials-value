@@ -11,6 +11,7 @@ import java.awt.geom.Rectangle2D;
 import java.util.Map;
 
 import net.runelite.api.widgets.Widget;
+import net.runelite.client.game.ItemManager;
 import net.runelite.client.ui.overlay.*;
 import net.runelite.client.ui.SkillColor;
 import net.runelite.client.util.ColorUtil;
@@ -24,21 +25,18 @@ import net.runelite.client.ui.overlay.components.ComponentOrientation;
 @Singleton
 public class BankedMatsValueOverlay extends OverlayPanel{
     private final Client client;
-    private final BankedMatsValuePlugin plugin;
     private final BankedMatsValueConfig config;
     private final TooltipManager tooltipManager;
-    private final OverlayManager overlayManager;
+    @Inject
+    ItemManager itemManager;
     public HashMap<Integer, RawMatsCache.RawMatData> bankedMats = new HashMap<>();
     public HashMap<Integer, ArrayList<Integer>> potentialProducts = new HashMap<>();
 
     @Inject
-    private BankedMatsValueOverlay(Client client, TooltipManager tooltipManager, BankedMatsValueConfig config,
-                                   BankedMatsValuePlugin plugin, OverlayManager overlayManager) {
+    private BankedMatsValueOverlay(Client client, TooltipManager tooltipManager, BankedMatsValueConfig config) {
         this.client = client;
         this.tooltipManager = tooltipManager;
         this.config = config;
-        this.plugin = plugin;
-        this.overlayManager = overlayManager;
 
         setLayer(OverlayLayer.ABOVE_WIDGETS);
         setPriority(OverlayPriority.HIGHEST);
@@ -64,7 +62,8 @@ public class BankedMatsValueOverlay extends OverlayPanel{
             ArrayList<Integer> products = potentialProducts.get(itemId);
             for (int i = 0; i < products.size(); i++) {
                 String colorStr = colorSkillString(ProductsCache.cache.get(products.get(i)).name, ProductsCache.cache.get(products.get(i)).skill);
-                tooltipManager.add(new Tooltip(colorStr));
+                String priceStr = colorPriceString(itemManager.getItemPrice(products.get(i)) - itemManager.getItemPrice(itemId));
+                tooltipManager.add(new Tooltip(colorStr + "  GE: " + priceStr + " gp"));
             }
         }
         return null;
@@ -78,5 +77,17 @@ public class BankedMatsValueOverlay extends OverlayPanel{
                 return ColorUtil.wrapWithColorTag(str, SkillColor.FLETCHING.getColor().brighter().brighter());
         }
         return "";
+    }
+
+    private String colorPriceString(Integer price) {
+        if (price > 0) {
+            return ColorUtil.wrapWithColorTag(price.toString(), Color.GREEN);
+        }
+        else if (price == 0) {
+            return ColorUtil.wrapWithColorTag(price.toString(), Color.YELLOW);
+        }
+        else {
+            return ColorUtil.wrapWithColorTag(price.toString(), Color.RED);
+        }
     }
 }
