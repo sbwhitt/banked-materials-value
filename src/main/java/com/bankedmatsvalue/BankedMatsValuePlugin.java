@@ -2,11 +2,13 @@ package com.bankedmatsvalue;
 
 import com.google.inject.Provides;
 import javax.inject.Inject;
+import java.awt.*;
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.*;
 import net.runelite.api.events.GameStateChanged;
+import net.runelite.api.events.ItemContainerChanged;
 import net.runelite.api.events.MenuEntryAdded;
 import net.runelite.api.widgets.Widget;
 import net.runelite.api.widgets.WidgetID;
@@ -17,6 +19,7 @@ import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 @Slf4j
@@ -79,8 +82,7 @@ public class BankedMatsValuePlugin extends Plugin
 
 		pluginToggled = !pluginToggled;
 		if (pluginToggled) {
-			findRawMats();
-			findPotentialProducts();
+			buildNewBankData();
 			overlayManager.add(overlay);
 		} else {
 			overlayManager.remove(overlay);
@@ -95,6 +97,25 @@ public class BankedMatsValuePlugin extends Plugin
 	public void hideOverlay() {
 		pluginToggled = false;
 		overlayManager.remove(overlay);
+	}
+
+	@Subscribe
+	private void onItemContainerChanged(ItemContainerChanged event) {
+		if (event.getContainerId() != InventoryID.BANK.getId()) {
+			pluginToggled = false;
+			overlayManager.remove(overlay);
+			return;
+		}
+		pluginToggled = true;
+		buildNewBankData();
+		overlayManager.add(overlay);
+	}
+
+	private void buildNewBankData() {
+		overlay.bankedMats.clear();
+		overlay.potentialProducts.clear();
+		findRawMats();
+		findPotentialProducts();
 	}
 
 	private void findRawMats() {
@@ -116,18 +137,23 @@ public class BankedMatsValuePlugin extends Plugin
 		if (bankContainer != null) {
 			for (Map.Entry<Integer, ProductsCache.ProductData> entry : ProductsCache.cache.entrySet()) {
 				ProductsCache.ProductData product = entry.getValue();
-				log.info("product loop");
-				Boolean creatable = false;
-				for (int i = 0; i < product.ingredients.length; i++) {
-					if (overlay.bankedMats.containsKey(product.ingredients[i])) creatable = true;
-					else {
-						creatable = false;
-						break;
+				if (isCreatable(product)) {
+					for (int i = 0; i < product.ingredients.length; i++) {
+						if (!overlay.potentialProducts.containsKey(product.ingredients[i])) {
+							overlay.potentialProducts.put(product.ingredients[i], new ArrayList<>(product.id));
+						}
+						overlay.potentialProducts.get(product.ingredients[i]).add(product.id);
 					}
 				}
-				if (creatable) overlay.potentialProducts.put(product.id, product);
 			}
 		}
+	}
+
+	private Boolean isCreatable(ProductsCache.ProductData product) {
+		for (int i = 0; i < product.ingredients.length; i++) {
+			if (!overlay.bankedMats.containsKey(product.ingredients[i])) return false;
+		}
+		return true;
 	}
 
 	public static void logIt(String in) {

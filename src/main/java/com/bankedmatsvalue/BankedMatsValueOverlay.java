@@ -28,10 +28,8 @@ public class BankedMatsValueOverlay extends OverlayPanel{
     private final BankedMatsValueConfig config;
     private final TooltipManager tooltipManager;
     private final OverlayManager overlayManager;
-    private final PanelComponent mainPanel;
-    private Widget bank;
     public HashMap<Integer, RawMatsCache.RawMatData> bankedMats = new HashMap<>();
-    public HashMap<Integer, ProductsCache.ProductData> potentialProducts = new HashMap<>();
+    public HashMap<Integer, ArrayList<Integer>> potentialProducts = new HashMap<>();
 
     @Inject
     private BankedMatsValueOverlay(Client client, TooltipManager tooltipManager, BankedMatsValueConfig config,
@@ -44,43 +42,30 @@ public class BankedMatsValueOverlay extends OverlayPanel{
 
         setLayer(OverlayLayer.ABOVE_WIDGETS);
         setPriority(OverlayPriority.HIGHEST);
-        setPosition(OverlayPosition.BOTTOM_LEFT);
-        setResizable(false);
-        setResettable(false);
-
-        panelComponent.setBackgroundColor(new Color(51, 51, 51, 245));
-        mainPanel = new PanelComponent();
     }
 
     @Override
     public Dimension render(Graphics2D graphics) {
-        bank = client.getWidget(WidgetInfo.BANK_CONTAINER);
+        final MenuEntry[] menuEntries = client.getMenuEntries();
+        if (menuEntries.length == 0) return null;
 
-        panelComponent.getChildren().clear();
+        final ItemContainer bank = client.getItemContainer(InventoryID.BANK);
+        final MenuEntry menuEntry = menuEntries[menuEntries.length - 1];
+        final int widgetId = menuEntry.getParam1();
+        if (client.isMenuOpen() || widgetId!= WidgetInfo.BANK_ITEM_CONTAINER.getId()) return null;
 
-        if (bank == null || bank.isHidden()) {
-            plugin.hideOverlay();
-            return null;
+        final int index = menuEntry.getParam0();
+        int itemId;
+        if (bank.getItem(index) == null) return null;
+        else itemId = bank.getItem(index).getId();
+
+        if (!potentialProducts.containsKey(itemId)) return null;
+        else {
+            ArrayList<Integer> products = potentialProducts.get(itemId);
+            for (int i = 0; i < products.size(); i++) {
+                tooltipManager.add(new Tooltip(ProductsCache.cache.get(products.get(i)).name));
+            }
         }
-
-        panelComponent.getChildren().add(TitleComponent.builder()
-                .text("Banked Mats Value")
-                .build());
-
-        for (Map.Entry<Integer, RawMatsCache.RawMatData> entry : bankedMats.entrySet()) {
-            panelComponent.getChildren().add(LineComponent.builder()
-                    .left(entry.getValue().name + ":")
-                    .right("" + entry.getValue().amount)
-                    .build());
-        }
-
-        for (Map.Entry<Integer, ProductsCache.ProductData> entry : potentialProducts.entrySet()) {
-            panelComponent.getChildren().add(LineComponent.builder()
-                    .left(entry.getValue().name + ":")
-                    .right("" + entry.getValue().skill)
-                    .build());
-        }
-
-        return super.render(graphics);
+        return null;
     }
 }

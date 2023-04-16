@@ -4,6 +4,31 @@
       "id": 1511,
       "name": "Logs",
       "amount": 0
+    },
+    {
+      "id": 2357,
+      "name": "Gold bar",
+      "amount": 0
+    },
+    {
+      "id": 1623,
+      "name": "Uncut sapphire",
+      "amount": 0
+    },
+    {
+      "id": 1621,
+      "name": "Uncut emerald",
+      "amount": 0
+    },
+    {
+      "id": 1619,
+      "name": "Uncut ruby",
+      "amount": 0
+    },
+    {
+      "id": 1617,
+      "name": "Uncut diamond",
+      "amount": 0
     }
   ]
 }

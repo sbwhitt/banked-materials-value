@@ -5,6 +5,12 @@
       "name": "Shortbow (u)",
       "skill": "fletching",
       "ingredients": [1511]
+    },
+    {
+      "id": 48,
+      "name": "Longbow (u)",
+      "skill": "fletching",
+      "ingredients": [1511]
     }
   ]
 }
