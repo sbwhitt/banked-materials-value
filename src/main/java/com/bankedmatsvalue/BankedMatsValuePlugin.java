@@ -28,6 +28,7 @@ import java.util.Map;
 )
 public class BankedMatsValuePlugin extends Plugin
 {
+	public static final String CONFIG_GROUP = "bankedmatsvalue";
 	@Inject
 	private Client client;
 	@Inject

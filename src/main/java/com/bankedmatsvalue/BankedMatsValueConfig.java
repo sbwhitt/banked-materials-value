@@ -4,13 +4,13 @@ import net.runelite.client.config.Config;
 import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
 
-@ConfigGroup("example")
+@ConfigGroup(BankedMatsValuePlugin.CONFIG_GROUP)
 public interface BankedMatsValueConfig extends Config
 {
 	@ConfigItem(
-		keyName = "greeting",
-		name = "Welcome Greeting",
-		description = "The message to show to the user when they login"
+		keyName = "matsList",
+		name = "Materials to Calculate",
+		description = "Enter the raw materials you wish to be "
 	)
 	default String greeting()
 	{
