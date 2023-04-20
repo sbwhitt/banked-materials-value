@@ -63,13 +63,23 @@ public class BankedMatsValueOverlay extends OverlayPanel{
             StringBuilder tooltipStr = new StringBuilder();
             for (int i = 0; i < products.size(); i++) {
                 tooltipStr.append(colorSkillString(ProductsCache.cache.get(products.get(i)).name, ProductsCache.cache.get(products.get(i)).skill))
+                        .append("\t")
                         .append(" GE: ")
-                        .append(colorProfitString(itemManager.getItemPrice(products.get(i)) - itemManager.getItemPrice(itemId)))
-                        .append("gp ea");
+                        .append(colorProfitString(itemManager.getItemPrice(products.get(i)) - getMaterialsCost(products.get(i))))
+                        .append(" gp ea")
+                        .append("</br>");
             }
             tooltipManager.add(new Tooltip(tooltipStr.toString()));
         }
         return null;
+    }
+
+    private int getMaterialsCost(Integer productId) {
+        int cost = 0;
+        for (int i : ProductsCache.cache.get(productId).ingredients) {
+            cost += itemManager.getItemPrice(i);
+        }
+        return cost;
     }
 
     private String colorSkillString(String str, String skillColor) {
@@ -84,13 +94,13 @@ public class BankedMatsValueOverlay extends OverlayPanel{
 
     private String colorProfitString(Integer profit) {
         if (profit > 0) {
-            return ColorUtil.wrapWithColorTag("+" + profit.toString(), Color.GREEN);
+            return ColorUtil.wrapWithColorTag(profit.toString(), Color.GREEN);
         }
         else if (profit == 0) {
-            return ColorUtil.wrapWithColorTag("+" + profit.toString(), Color.YELLOW);
+            return ColorUtil.wrapWithColorTag(profit.toString(), Color.YELLOW);
         }
         else {
-            return ColorUtil.wrapWithColorTag("-" + profit.toString(), Color.RED);
+            return ColorUtil.wrapWithColorTag(profit.toString(), Color.RED);
         }
     }
 }
