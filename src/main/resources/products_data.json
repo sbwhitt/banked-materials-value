@@ -1,70 +1,636 @@
 {
   "products": [
     {
-      "id": 50,
-      "name": "Shortbow (u)",
-      "skill": "Fletching",
-      "ingredients": [1511]
+      "name": "Silver ring",
+      "skill": "Crafting",
+      "ingredients": [
+        2355
+      ]
     },
     {
-      "id": 48,
-      "name": "Longbow (u)",
-      "skill": "Fletching",
-      "ingredients": [1511]
+      "name": "Gold ring",
+      "skill": "Crafting",
+      "ingredients": [
+        2357
+      ],
+      "id": 1635
     },
     {
-      "id": 11068,
+      "name": "Topaz ring",
+      "skill": "Crafting",
+      "ingredients": [
+        2355,
+        1613
+      ],
+      "id": 21087
+    },
+    {
+      "name": "Opal ring",
+      "skill": "Crafting",
+      "ingredients": [
+        2355,
+        1609
+      ],
+      "id": 21081
+    },
+    {
+      "name": "Jade ring",
+      "skill": "Crafting",
+      "ingredients": [
+        2355,
+        1611
+      ],
+      "id": 21084
+    },
+    {
+      "name": "Sapphire ring",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        1607
+      ],
+      "id": 1637
+    },
+    {
+      "name": "Emerald ring",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        1605
+      ],
+      "id": 1639
+    },
+    {
+      "name": "Ruby ring",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        1603
+      ],
+      "id": 1641
+    },
+    {
+      "name": "Diamond ring",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        1601
+      ],
+      "id": 1643
+    },
+    {
+      "name": "Dragonstone ring",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        1615
+      ],
+      "id": 1645
+    },
+    {
+      "name": "Onyx ring",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        6573
+      ],
+      "id": 6575
+    },
+    {
+      "name": "Zenyte ring",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        19493
+      ],
+      "id": 19538
+    },
+    {
+      "name": "Silver necklace",
+      "skill": "Crafting",
+      "ingredients": [
+        2355
+      ]
+    },
+    {
+      "name": "Gold necklace",
+      "skill": "Crafting",
+      "ingredients": [
+        2357
+      ],
+      "id": 1654
+    },
+    {
+      "name": "Topaz necklace",
+      "skill": "Crafting",
+      "ingredients": [
+        2355,
+        1613
+      ],
+      "id": 21096
+    },
+    {
+      "name": "Opal necklace",
+      "skill": "Crafting",
+      "ingredients": [
+        2355,
+        1609
+      ],
+      "id": 21090
+    },
+    {
+      "name": "Jade necklace",
+      "skill": "Crafting",
+      "ingredients": [
+        2355,
+        1611
+      ],
+      "id": 21093
+    },
+    {
+      "name": "Sapphire necklace",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        1607
+      ],
+      "id": 1656
+    },
+    {
+      "name": "Emerald necklace",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        1605
+      ],
+      "id": 1658
+    },
+    {
+      "name": "Ruby necklace",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        1603
+      ],
+      "id": 1660
+    },
+    {
+      "name": "Diamond necklace",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        1601
+      ],
+      "id": 1662
+    },
+    {
+      "name": "Dragonstone necklace",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        1615
+      ]
+    },
+    {
+      "name": "Onyx necklace",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        6573
+      ],
+      "id": 6577
+    },
+    {
+      "name": "Zenyte necklace",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        19493
+      ],
+      "id": 19535
+    },
+    {
+      "name": "Silver bracelet",
+      "skill": "Crafting",
+      "ingredients": [
+        2355
+      ]
+    },
+    {
       "name": "Gold bracelet",
       "skill": "Crafting",
-      "ingredients": [2357]
+      "ingredients": [
+        2357
+      ],
+      "id": 11069
     },
     {
-      "id": 11071,
+      "name": "Topaz bracelet",
+      "skill": "Crafting",
+      "ingredients": [
+        2355,
+        1613
+      ],
+      "id": 21123
+    },
+    {
+      "name": "Opal bracelet",
+      "skill": "Crafting",
+      "ingredients": [
+        2355,
+        1609
+      ],
+      "id": 21117
+    },
+    {
+      "name": "Jade bracelet",
+      "skill": "Crafting",
+      "ingredients": [
+        2355,
+        1611
+      ],
+      "id": 21120
+    },
+    {
       "name": "Sapphire bracelet",
       "skill": "Crafting",
-      "ingredients": [2357, 1607]
+      "ingredients": [
+        2357,
+        1607
+      ],
+      "id": 11072
     },
     {
-      "id": 11076,
       "name": "Emerald bracelet",
       "skill": "Crafting",
-      "ingredients": [2357, 1605]
+      "ingredients": [
+        2357,
+        1605
+      ],
+      "id": 11076
     },
     {
-      "id": 11085,
       "name": "Ruby bracelet",
       "skill": "Crafting",
-      "ingredients": [2357, 1603]
+      "ingredients": [
+        2357,
+        1603
+      ],
+      "id": 11085
     },
     {
-      "id": 11092,
       "name": "Diamond bracelet",
       "skill": "Crafting",
-      "ingredients": [2357, 1601]
+      "ingredients": [
+        2357,
+        1601
+      ],
+      "id": 11092
     },
     {
-      "id": 1607,
+      "name": "Dragonstone bracelet",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        1615
+      ],
+      "id": 11115
+    },
+    {
+      "name": "Onyx bracelet",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        6573
+      ],
+      "id": 11130
+    },
+    {
+      "name": "Zenyte bracelet",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        19493
+      ],
+      "id": 19532
+    },
+    {
+      "name": "Silver amulet (u)",
+      "skill": "Crafting",
+      "ingredients": [
+        2355
+      ]
+    },
+    {
+      "name": "Gold amulet (u)",
+      "skill": "Crafting",
+      "ingredients": [
+        2357
+      ],
+      "id": 1673
+    },
+    {
+      "name": "Topaz amulet (u)",
+      "skill": "Crafting",
+      "ingredients": [
+        2355,
+        1613
+      ],
+      "id": 21105
+    },
+    {
+      "name": "Opal amulet (u)",
+      "skill": "Crafting",
+      "ingredients": [
+        2355,
+        1609
+      ],
+      "id": 21099
+    },
+    {
+      "name": "Jade amulet (u)",
+      "skill": "Crafting",
+      "ingredients": [
+        2355,
+        1611
+      ],
+      "id": 21102
+    },
+    {
+      "name": "Sapphire amulet (u)",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        1607
+      ],
+      "id": 1675
+    },
+    {
+      "name": "Emerald amulet (u)",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        1605
+      ],
+      "id": 1677
+    },
+    {
+      "name": "Ruby amulet (u)",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        1603
+      ],
+      "id": 1679
+    },
+    {
+      "name": "Diamond amulet (u)",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        1601
+      ],
+      "id": 1681
+    },
+    {
+      "name": "Dragonstone amulet (u)",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        1615
+      ],
+      "id": 1683
+    },
+    {
+      "name": "Onyx amulet (u)",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        6573
+      ],
+      "id": 6579
+    },
+    {
+      "name": "Zenyte amulet (u)",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        19493
+      ],
+      "id": 19501
+    },
+    {
+      "name": "Silver amulet",
+      "skill": "Crafting",
+      "ingredients": [
+        2355,
+        1759
+      ]
+    },
+    {
+      "name": "Gold amulet",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        1759
+      ],
+      "id": 1692
+    },
+    {
+      "name": "Topaz amulet",
+      "skill": "Crafting",
+      "ingredients": [
+        2355,
+        1759,
+        1613
+      ],
+      "id": 21114
+    },
+    {
+      "name": "Opal amulet",
+      "skill": "Crafting",
+      "ingredients": [
+        2355,
+        1759,
+        1609
+      ],
+      "id": 21108
+    },
+    {
+      "name": "Jade amulet",
+      "skill": "Crafting",
+      "ingredients": [
+        2355,
+        1759,
+        1611
+      ],
+      "id": 21111
+    },
+    {
+      "name": "Sapphire amulet",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        1759,
+        1607
+      ],
+      "id": 1694
+    },
+    {
+      "name": "Emerald amulet",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        1759,
+        1605
+      ],
+      "id": 1696
+    },
+    {
+      "name": "Ruby amulet",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        1759,
+        1603
+      ],
+      "id": 1698
+    },
+    {
+      "name": "Diamond amulet",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        1759,
+        1601
+      ],
+      "id": 1700
+    },
+    {
+      "name": "Dragonstone amulet",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        1759,
+        1615
+      ],
+      "id": 1702
+    },
+    {
+      "name": "Onyx amulet",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        1759,
+        6573
+      ],
+      "id": 6581
+    },
+    {
+      "name": "Zenyte amulet",
+      "skill": "Crafting",
+      "ingredients": [
+        2357,
+        1759,
+        19493
+      ],
+      "id": 19541
+    },
+    {
+      "name": "Opal",
+      "skill": "Crafting",
+      "ingredients": [
+        1625
+      ],
+      "id": 1609
+    },
+    {
+      "name": "Jade",
+      "skill": "Crafting",
+      "ingredients": [
+        1627
+      ],
+      "id": 1611
+    },
+    {
+      "name": "Red topaz",
+      "skill": "Crafting",
+      "ingredients": [
+        1629
+      ],
+      "id": 1613
+    },
+    {
       "name": "Sapphire",
       "skill": "Crafting",
-      "ingredients": [1623]
+      "ingredients": [
+        1623
+      ],
+      "id": 1607
     },
     {
-      "id": 1605,
       "name": "Emerald",
       "skill": "Crafting",
-      "ingredients": [1621]
+      "ingredients": [
+        1621
+      ],
+      "id": 1605
     },
     {
-      "id": 1603,
       "name": "Ruby",
       "skill": "Crafting",
-      "ingredients": [1619]
+      "ingredients": [
+        1619
+      ],
+      "id": 1603
     },
     {
-      "id": 1601,
       "name": "Diamond",
       "skill": "Crafting",
-      "ingredients": [1617]
+      "ingredients": [
+        1617
+      ],
+      "id": 1601
+    },
+    {
+      "name": "Dragonstone",
+      "skill": "Crafting",
+      "ingredients": [
+        1631
+      ],
+      "id": 1615
+    },
+    {
+      "name": "Onyx",
+      "skill": "Crafting",
+      "ingredients": [
+        6571
+      ],
+      "id": 6573
+    },
+    {
+      "name": "Zenyte",
+      "skill": "Crafting",
+      "ingredients": [
+        19496
+      ],
+      "id": 19493
+    },
+    {
+      "name": "Shortbow (u)",
+      "skill": "Fletching",
+      "ingredients": [
+        1511
+      ],
+      "id": 50
+    },
+    {
+      "name": "Longbow (u)",
+      "skill": "Fletching",
+      "ingredients": [
+        1511
+      ],
+      "id": 48
     }
   ]
 }

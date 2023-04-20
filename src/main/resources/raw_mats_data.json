@@ -6,23 +6,28 @@
       "amount": 0
     },
     {
-      "id": 2357,
-      "name": "Gold bar",
+      "id": 1513,
+      "name": "Magic logs",
       "amount": 0
     },
     {
-      "id": 1607,
-      "name": "Sapphire",
+      "id": 1515,
+      "name": "Yew logs",
       "amount": 0
     },
     {
-      "id": 1605,
-      "name": "Emerald",
+      "id": 1517,
+      "name": "Maple logs",
       "amount": 0
     },
     {
-      "id": 1603,
-      "name": "Ruby",
+      "id": 1519,
+      "name": "Willow logs",
+      "amount": 0
+    },
+    {
+      "id": 1521,
+      "name": "Oak logs",
       "amount": 0
     },
     {
@@ -31,13 +36,43 @@
       "amount": 0
     },
     {
-      "id": 1623,
-      "name": "Uncut sapphire",
+      "id": 1603,
+      "name": "Ruby",
       "amount": 0
     },
     {
-      "id": 1621,
-      "name": "Uncut emerald",
+      "id": 1605,
+      "name": "Emerald",
+      "amount": 0
+    },
+    {
+      "id": 1607,
+      "name": "Sapphire",
+      "amount": 0
+    },
+    {
+      "id": 1609,
+      "name": "Opal",
+      "amount": 0
+    },
+    {
+      "id": 1611,
+      "name": "Jade",
+      "amount": 0
+    },
+    {
+      "id": 1613,
+      "name": "Red topaz",
+      "amount": 0
+    },
+    {
+      "id": 1615,
+      "name": "Dragonstone",
+      "amount": 0
+    },
+    {
+      "id": 1617,
+      "name": "Uncut diamond",
       "amount": 0
     },
     {
@@ -46,8 +81,73 @@
       "amount": 0
     },
     {
-      "id": 1617,
-      "name": "Uncut diamond",
+      "id": 1621,
+      "name": "Uncut emerald",
+      "amount": 0
+    },
+    {
+      "id": 1623,
+      "name": "Uncut sapphire",
+      "amount": 0
+    },
+    {
+      "id": 1625,
+      "name": "Uncut opal",
+      "amount": 0
+    },
+    {
+      "id": 1627,
+      "name": "Uncut jade",
+      "amount": 0
+    },
+    {
+      "id": 1629,
+      "name": "Uncut red topaz",
+      "amount": 0
+    },
+    {
+      "id": 1631,
+      "name": "Uncut dragonstone",
+      "amount": 0
+    },
+    {
+      "id": 1759,
+      "name": "Ball of wool",
+      "amount": 0
+    },
+    {
+      "id": 1777,
+      "name": "Bow string",
+      "amount": 0
+    },
+    {
+      "id": 2355,
+      "name": "Silver bar",
+      "amount": 0
+    },
+    {
+      "id": 2357,
+      "name": "Gold bar",
+      "amount": 0
+    },
+    {
+      "id": 6571,
+      "name": "Uncut onyx",
+      "amount": 0
+    },
+    {
+      "id": 6573,
+      "name": "Onyx",
+      "amount": 0
+    },
+    {
+      "id": 19493,
+      "name": "Zenyte",
+      "amount": 0
+    },
+    {
+      "id": 19496,
+      "name": "Uncut zenyte",
       "amount": 0
     }
   ]
