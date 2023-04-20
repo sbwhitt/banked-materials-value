@@ -65,7 +65,9 @@ public class BankedMatsValueOverlay extends OverlayPanel{
                 tooltipStr.append(colorSkillString(ProductsCache.cache.get(products.get(i)).name, ProductsCache.cache.get(products.get(i)).skill))
                         .append("\t")
                         .append(" GE: ")
-                        .append(colorProfitString(itemManager.getItemPrice(products.get(i)) - getMaterialsCost(products.get(i))))
+                        .append(
+                                colorProfitString(itemManager.getItemPrice(products.get(i)) - getMaterialsCost(products.get(i)))
+                        )
                         .append(" gp ea")
                         .append("</br>");
             }
@@ -94,10 +96,10 @@ public class BankedMatsValueOverlay extends OverlayPanel{
 
     private String colorProfitString(Integer profit) {
         if (profit > 0) {
-            return ColorUtil.wrapWithColorTag(profit.toString(), Color.GREEN);
+            return ColorUtil.wrapWithColorTag("+" + profit.toString(), Color.GREEN);
         }
         else if (profit == 0) {
-            return ColorUtil.wrapWithColorTag(profit.toString(), Color.YELLOW);
+            return ColorUtil.wrapWithColorTag("+" + profit.toString(), Color.YELLOW);
         }
         else {
             return ColorUtil.wrapWithColorTag(profit.toString(), Color.RED);
