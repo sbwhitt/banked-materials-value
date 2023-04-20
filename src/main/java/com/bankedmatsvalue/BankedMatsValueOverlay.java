@@ -60,11 +60,14 @@ public class BankedMatsValueOverlay extends OverlayPanel{
         if (!potentialProducts.containsKey(itemId)) return null;
         else {
             ArrayList<Integer> products = potentialProducts.get(itemId);
+            StringBuilder tooltipStr = new StringBuilder();
             for (int i = 0; i < products.size(); i++) {
-                String colorStr = colorSkillString(ProductsCache.cache.get(products.get(i)).name, ProductsCache.cache.get(products.get(i)).skill);
-                String priceStr = colorPriceString(itemManager.getItemPrice(products.get(i)) - itemManager.getItemPrice(itemId));
-                tooltipManager.add(new Tooltip(colorStr + "  GE: " + priceStr + " gp"));
+                tooltipStr.append(colorSkillString(ProductsCache.cache.get(products.get(i)).name, ProductsCache.cache.get(products.get(i)).skill))
+                        .append(" GE: ")
+                        .append(colorProfitString(itemManager.getItemPrice(products.get(i)) - itemManager.getItemPrice(itemId)))
+                        .append("gp ea");
             }
+            tooltipManager.add(new Tooltip(tooltipStr.toString()));
         }
         return null;
     }
@@ -79,15 +82,15 @@ public class BankedMatsValueOverlay extends OverlayPanel{
         return "";
     }
 
-    private String colorPriceString(Integer price) {
-        if (price > 0) {
-            return ColorUtil.wrapWithColorTag(price.toString(), Color.GREEN);
+    private String colorProfitString(Integer profit) {
+        if (profit > 0) {
+            return ColorUtil.wrapWithColorTag("+" + profit.toString(), Color.GREEN);
         }
-        else if (price == 0) {
-            return ColorUtil.wrapWithColorTag(price.toString(), Color.YELLOW);
+        else if (profit == 0) {
+            return ColorUtil.wrapWithColorTag("+" + profit.toString(), Color.YELLOW);
         }
         else {
-            return ColorUtil.wrapWithColorTag(price.toString(), Color.RED);
+            return ColorUtil.wrapWithColorTag("-" + profit.toString(), Color.RED);
         }
     }
 }
