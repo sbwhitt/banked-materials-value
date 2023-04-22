@@ -537,84 +537,22 @@
       "id": 19541
     },
     {
-      "name": "Opal",
-      "skill": "Crafting",
+      "name": "Shortbow",
+      "skill": "Fletching",
       "ingredients": [
-        1625
+        50,
+        1777
       ],
-      "id": 1609
+      "id": 841
     },
     {
-      "name": "Jade",
-      "skill": "Crafting",
+      "name": "Longbow",
+      "skill": "Fletching",
       "ingredients": [
-        1627
+        48,
+        1777
       ],
-      "id": 1611
-    },
-    {
-      "name": "Red topaz",
-      "skill": "Crafting",
-      "ingredients": [
-        1629
-      ],
-      "id": 1613
-    },
-    {
-      "name": "Sapphire",
-      "skill": "Crafting",
-      "ingredients": [
-        1623
-      ],
-      "id": 1607
-    },
-    {
-      "name": "Emerald",
-      "skill": "Crafting",
-      "ingredients": [
-        1621
-      ],
-      "id": 1605
-    },
-    {
-      "name": "Ruby",
-      "skill": "Crafting",
-      "ingredients": [
-        1619
-      ],
-      "id": 1603
-    },
-    {
-      "name": "Diamond",
-      "skill": "Crafting",
-      "ingredients": [
-        1617
-      ],
-      "id": 1601
-    },
-    {
-      "name": "Dragonstone",
-      "skill": "Crafting",
-      "ingredients": [
-        1631
-      ],
-      "id": 1615
-    },
-    {
-      "name": "Onyx",
-      "skill": "Crafting",
-      "ingredients": [
-        6571
-      ],
-      "id": 6573
-    },
-    {
-      "name": "Zenyte",
-      "skill": "Crafting",
-      "ingredients": [
-        19496
-      ],
-      "id": 19493
+      "id": 839
     },
     {
       "name": "Shortbow (u)",
@@ -631,6 +569,176 @@
         1511
       ],
       "id": 48
+    },
+    {
+      "name": "Oak longbow (u)",
+      "skill": "Fletching",
+      "ingredients": [
+        1521
+      ],
+      "id": 56
+    },
+    {
+      "name": "Oak shortbow (u)",
+      "skill": "Fletching",
+      "ingredients": [
+        1521
+      ],
+      "id": 54
+    },
+    {
+      "name": "Oak longbow",
+      "skill": "Fletching",
+      "ingredients": [
+        56,
+        1777
+      ],
+      "id": 845
+    },
+    {
+      "name": "Oak shortbow",
+      "skill": "Fletching",
+      "ingredients": [
+        54,
+        1777
+      ],
+      "id": 843
+    },
+    {
+      "name": "Willow longbow (u)",
+      "skill": "Fletching",
+      "ingredients": [
+        1519
+      ],
+      "id": 58
+    },
+    {
+      "name": "Willow shortbow (u)",
+      "skill": "Fletching",
+      "ingredients": [
+        1519
+      ],
+      "id": 60
+    },
+    {
+      "name": "Willow longbow",
+      "skill": "Fletching",
+      "ingredients": [
+        58,
+        1777
+      ],
+      "id": 847
+    },
+    {
+      "name": "Willow shortbow",
+      "skill": "Fletching",
+      "ingredients": [
+        60,
+        1777
+      ],
+      "id": 849
+    },
+    {
+      "name": "Maple longbow (u)",
+      "skill": "Fletching",
+      "ingredients": [
+        1517
+      ],
+      "id": 62
+    },
+    {
+      "name": "Maple shortbow (u)",
+      "skill": "Fletching",
+      "ingredients": [
+        1517
+      ],
+      "id": 64
+    },
+    {
+      "name": "Maple longbow",
+      "skill": "Fletching",
+      "ingredients": [
+        62,
+        1777
+      ],
+      "id": 851
+    },
+    {
+      "name": "Maple shortbow",
+      "skill": "Fletching",
+      "ingredients": [
+        64,
+        1777
+      ],
+      "id": 853
+    },
+    {
+      "name": "Yew longbow (u)",
+      "skill": "Fletching",
+      "ingredients": [
+        1515
+      ],
+      "id": 66
+    },
+    {
+      "name": "Yew shortbow (u)",
+      "skill": "Fletching",
+      "ingredients": [
+        1515
+      ],
+      "id": 68
+    },
+    {
+      "name": "Yew longbow",
+      "skill": "Fletching",
+      "ingredients": [
+        66,
+        1777
+      ],
+      "id": 855
+    },
+    {
+      "name": "Yew shortbow",
+      "skill": "Fletching",
+      "ingredients": [
+        68,
+        1777
+      ],
+      "id": 857
+    },
+    {
+      "name": "Magic longbow (u)",
+      "skill": "Fletching",
+      "ingredients": [
+        1513
+      ],
+      "id": 70
+    },
+    {
+      "name": "Magic shortbow (u)",
+      "skill": "Fletching",
+      "ingredients": [
+        1513
+      ],
+      "id": 72
+    },
+    {
+      "name": "Magic longbow",
+      "skill": "Fletching",
+      "ingredients": [
+        70,
+        1777
+      ],
+      "id": 859
+    },
+    {
+      "name": "Magic shortbow",
+      "skill": "Fletching",
+      "ingredients": [
+        72,
+        1777
+      ],
+      "id": 861
     }
   ]
 }

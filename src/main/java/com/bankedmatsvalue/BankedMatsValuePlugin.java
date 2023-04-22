@@ -91,11 +91,6 @@ public class BankedMatsValuePlugin extends Plugin
 		return configManager.getConfig(BankedMatsValueConfig.class);
 	}
 
-	public void hideOverlay() {
-		pluginToggled = false;
-		overlayManager.remove(overlay);
-	}
-
 	@Subscribe
 	private void onItemContainerChanged(ItemContainerChanged event) {
 		if (event.getContainerId() != InventoryID.BANK.getId()) {

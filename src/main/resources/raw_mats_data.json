@@ -1,6 +1,66 @@
 {
   "mats": [
     {
+      "id": 48,
+      "name": "Longbow (u)",
+      "amount": 0
+    },
+    {
+      "id": 50,
+      "name": "Shortbow (u)",
+      "amount": 0
+    },
+    {
+      "id": 54,
+      "name": "Oak shortbow (u)",
+      "amount": 0
+    },
+    {
+      "id": 56,
+      "name": "Oak longbow (u)",
+      "amount": 0
+    },
+    {
+      "id": 58,
+      "name": "Willow longbow (u)",
+      "amount": 0
+    },
+    {
+      "id": 60,
+      "name": "Willow shortbow (u)",
+      "amount": 0
+    },
+    {
+      "id": 62,
+      "name": "Maple longbow (u)",
+      "amount": 0
+    },
+    {
+      "id": 64,
+      "name": "Maple shortbow (u)",
+      "amount": 0
+    },
+    {
+      "id": 66,
+      "name": "Yew longbow (u)",
+      "amount": 0
+    },
+    {
+      "id": 68,
+      "name": "Yew shortbow (u)",
+      "amount": 0
+    },
+    {
+      "id": 70,
+      "name": "Magic longbow (u)",
+      "amount": 0
+    },
+    {
+      "id": 72,
+      "name": "Magic shortbow (u)",
+      "amount": 0
+    },
+    {
       "id": 1511,
       "name": "Logs",
       "amount": 0
