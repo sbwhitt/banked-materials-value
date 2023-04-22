@@ -8,12 +8,13 @@ import net.runelite.client.config.ConfigItem;
 public interface BankedMatsValueConfig extends Config
 {
 	@ConfigItem(
-		keyName = "matsList",
-		name = "Materials to Calculate",
-		description = "Enter the raw materials you wish to be "
+		position = 1,
+		keyName = "productAmnt",
+		name = "Products to display",
+		description = "Choose the number of products you wish to see in the item tooltip."
 	)
-	default String greeting()
+	default int productAmnt()
 	{
-		return "Hello";
+		return 5;
 	}
 }

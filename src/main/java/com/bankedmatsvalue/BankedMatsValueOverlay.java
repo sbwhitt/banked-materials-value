@@ -1,26 +1,18 @@
 package com.bankedmatsvalue;
 
 import java.awt.*;
-import java.awt.Point;
 import java.util.HashMap;
 import net.runelite.api.*;
 import java.util.ArrayList;
 import javax.inject.Inject;
 import javax.inject.Singleton;
-import java.awt.geom.Rectangle2D;
-import java.util.Map;
-
-import net.runelite.api.widgets.Widget;
 import net.runelite.client.game.ItemManager;
 import net.runelite.client.ui.overlay.*;
 import net.runelite.client.ui.SkillColor;
 import net.runelite.client.util.ColorUtil;
 import net.runelite.api.widgets.WidgetInfo;
-import net.runelite.client.game.SkillIconManager;
-import net.runelite.client.ui.overlay.components.*;
 import net.runelite.client.ui.overlay.tooltip.Tooltip;
 import net.runelite.client.ui.overlay.tooltip.TooltipManager;
-import net.runelite.client.ui.overlay.components.ComponentOrientation;
 
 @Singleton
 public class BankedMatsValueOverlay extends OverlayPanel{
@@ -56,15 +48,17 @@ public class BankedMatsValueOverlay extends OverlayPanel{
         int itemId;
         if (bank.getItem(index) == null) return null;
         else itemId = bank.getItem(index).getId();
+        buildItemTooltip(itemId);
+        return null;
+    }
 
-        if (!potentialProducts.containsKey(itemId)) return null;
-        else {
+    private void buildItemTooltip(int itemId) {
+        if (potentialProducts.containsKey(itemId)) {
             ArrayList<Integer> products = potentialProducts.get(itemId);
             StringBuilder tooltipStr = new StringBuilder();
-            for (int i = 0; i < products.size(); i++) {
+            for (int i = 0; i < products.size() && i < config.productAmnt(); i++) {
                 tooltipStr.append(colorSkillString(ProductsCache.cache.get(products.get(i)).name, ProductsCache.cache.get(products.get(i)).skill))
-                        .append("\t")
-                        .append(" GE: ")
+                        .append("  GE: ")
                         .append(
                                 colorProfitString(itemManager.getItemPrice(products.get(i)) - getMaterialsCost(products.get(i)))
                         )
@@ -73,7 +67,6 @@ public class BankedMatsValueOverlay extends OverlayPanel{
             }
             tooltipManager.add(new Tooltip(tooltipStr.toString()));
         }
-        return null;
     }
 
     private int getMaterialsCost(Integer productId) {
