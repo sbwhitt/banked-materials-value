@@ -2,12 +2,8 @@ package com.bankedmatsvalue;
 
 import com.google.inject.Provides;
 import javax.inject.Inject;
-import java.awt.*;
-
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.*;
-import net.runelite.api.events.GameStateChanged;
 import net.runelite.api.events.ItemContainerChanged;
 import net.runelite.api.events.MenuEntryAdded;
 import net.runelite.api.widgets.Widget;

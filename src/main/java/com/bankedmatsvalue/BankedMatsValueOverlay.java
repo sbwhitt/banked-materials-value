@@ -1,6 +1,7 @@
 package com.bankedmatsvalue;
 
 import java.awt.*;
+import java.util.Collections;
 import java.util.HashMap;
 import net.runelite.api.*;
 import java.util.ArrayList;
@@ -54,19 +55,31 @@ public class BankedMatsValueOverlay extends OverlayPanel{
 
     private void buildItemTooltip(int itemId) {
         if (potentialProducts.containsKey(itemId)) {
-            ArrayList<Integer> products = potentialProducts.get(itemId);
+            ArrayList<Product> products = getSortedProducts(potentialProducts.get(itemId));
             StringBuilder tooltipStr = new StringBuilder();
             for (int i = 0; i < products.size() && i < config.productAmnt(); i++) {
-                tooltipStr.append(colorSkillString(ProductsCache.cache.get(products.get(i)).name, ProductsCache.cache.get(products.get(i)).skill))
+                tooltipStr.append(colorSkillString(ProductsCache.cache.get(products.get(i).id).name, ProductsCache.cache.get(products.get(i).id).skill))
                         .append("  GE: ")
                         .append(
-                                colorProfitString(itemManager.getItemPrice(products.get(i)) - getMaterialsCost(products.get(i)))
+                                colorProfitString(products.get(i).profit)
                         )
                         .append(" gp ea")
                         .append("</br>");
             }
             tooltipManager.add(new Tooltip(tooltipStr.toString()));
         }
+    }
+
+    private ArrayList<Product> getSortedProducts(ArrayList<Integer> products) {
+        ArrayList<Product> productsToDisplay = new ArrayList<>();
+        for (int i = 0; i < products.size(); i++) {
+            productsToDisplay.add(
+                    new Product(products.get(i), itemManager.getItemPrice(products.get(i)) - getMaterialsCost(products.get(i)))
+            );
+        }
+        if (config.sortOption() == BankedMatsValueConfig.SortOption.DESCENDING) Collections.sort(productsToDisplay, Collections.reverseOrder());
+        else Collections.sort(productsToDisplay);
+        return productsToDisplay;
     }
 
     private int getMaterialsCost(Integer productId) {
