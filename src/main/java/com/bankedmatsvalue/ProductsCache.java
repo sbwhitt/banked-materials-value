@@ -43,11 +43,4 @@ public class ProductsCache {
             cache.put(productContainer.products.get(i).id, productContainer.products.get(i));
         }
     }
-
-    public ProductData getProduct(int id) {
-        if (cache.containsKey(id)) {
-            return cache.get(id);
-        }
-        return null;
-    }
 }
